@@ -26,11 +26,11 @@ main{flex:1;min-height:0;position:relative}
 .b{cursor:pointer;transition:transform .25s}.b:hover{transform:translateY(-4px)}.b.sel .t{stroke:var(--ink);stroke-width:2}
 .w{fill:var(--win)}.w.busy{fill:#ffcf6e}.w.clean{fill:#bfe6ff}
 .nm{font-size:11px;fill:var(--mut);text-anchor:middle;font-weight:700}
-.lamp{fill:#ffcf6e;filter:drop-shadow(0 0 5px rgba(255,207,110,.9))}
+.lamp{fill:#ffcf6e;stroke:rgba(255,207,110,.4);stroke-width:5}
 .bob{animation:bob 2.4s ease-in-out infinite}@keyframes bob{50%{transform:translateY(-5px)}}
 #toast{position:absolute;left:50%;top:14%;transform:translate(-50%,0);font-size:26px;font-weight:800;color:var(--ok);opacity:0;pointer-events:none}
 #toast.go{animation:up 1.3s ease-out}@keyframes up{0%{opacity:0;transform:translate(-50%,16px)}20%{opacity:1}100%{opacity:0;transform:translate(-50%,-50px)}}
-.sheet{position:fixed;right:16px;bottom:calc(58px + env(safe-area-inset-bottom,0px));width:min(340px,calc(100% - 32px));background:var(--card);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:0 24px 60px var(--sh);opacity:0;transform:translateY(24px) scale(.97);pointer-events:none;transition:.35s cubic-bezier(.2,.9,.3,1);z-index:5}
+.sheet{position:fixed;right:16px;bottom:calc(58px + env(safe-area-inset-bottom,0px));width:min(340px,calc(100% - 32px));background:linear-gradient(var(--card),var(--card)),var(--bg);border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:0 10px 24px var(--sh);opacity:0;transform:translateY(24px) scale(.97);pointer-events:none;transition:.35s cubic-bezier(.2,.9,.3,1);z-index:5}
 .sheet.on{opacity:1;transform:none;pointer-events:auto}
 .sheet h3{margin:0 28px 2px 0;font-size:18px;font-weight:800}.sub{margin:0 0 12px;color:var(--mut)}
 .q{margin:0 0 12px;padding:10px 12px;border-left:3px solid var(--acc);background:var(--line);border-radius:0 10px 10px 0}
@@ -52,9 +52,9 @@ footer b{color:var(--ink)}footer em{font-style:normal;color:var(--ok)}
 .row{display:flex;gap:8px;margin-bottom:10px}.row input{flex:1;min-width:0;font:inherit;color:inherit;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:9px 12px}.row input:focus-visible{outline:2px solid var(--acc)}
 body[data-w="f"]{--bg:#0d1d15;--ink:#f3ecd6;--mut:#a9bfa0;--card:rgba(18,38,28,.9);--line:rgba(255,255,255,.14);--acc:#e8a93a;--ok:#6fcf7e;--warn:#c9a24a;--gnd:#16301f;--rd:#3a3023;--win:#2a3a2c;--skin:#e2b48a;--sh:rgba(0,0,0,.55);background:radial-gradient(70% 55% at 75% 0%,rgba(255,214,120,.28),transparent),radial-gradient(60% 50% at 10% 100%,rgba(60,160,110,.22),transparent),#0d1d15}
 .wd{display:none}body[data-w="f"] .wd{display:block}
-.ff{fill:#ffe98a;filter:drop-shadow(0 0 4px #ffe98a);animation:ffl 7s ease-in-out infinite}@keyframes ffl{0%,100%{opacity:.15;transform:translate(0,0)}50%{opacity:1;transform:translate(14px,-18px)}}
+.ff{fill:#ffe98a;stroke:rgba(255,233,138,.3);stroke-width:5;animation:ffl 7s ease-in-out infinite}@keyframes ffl{0%,100%{opacity:.15;transform:translate(0,0)}50%{opacity:1;transform:translate(14px,-18px)}}
 .sm{fill:#e9e5d6;opacity:0;animation:sm 3.4s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes sm{0%{opacity:.75;transform:translate(0,0) scale(.5)}100%{opacity:0;transform:translate(9px,-36px) scale(1.7)}}
-.ln{fill:#ffc861;filter:drop-shadow(0 0 5px #ffb740);animation:lt 3s ease-in-out infinite alternate}@keyframes lt{from{opacity:.8}to{opacity:1}}
+.ln{fill:#ffc861;stroke:rgba(255,184,64,.35);stroke-width:4}
 .cr{transform-box:fill-box;transform-origin:50% 100%;animation:sway 5s ease-in-out infinite alternate}@keyframes sway{from{transform:rotate(-1.2deg)}to{transform:rotate(1.2deg)}}
 @media (prefers-reduced-motion:reduce){.ff,.sm,.ln,.cr{animation:none!important}}
 .at{animation:atp 1.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}@keyframes atp{50%{transform:scale(1.28)}}@media (prefers-reduced-motion:reduce){.at{animation:none}}
@@ -74,20 +74,22 @@ body[data-w="o"] #gst>:nth-child(n+2):nth-child(-n+5),body[data-w="k"] #gst>:nth
 .cd{animation:dr 30s ease-in-out infinite alternate}@keyframes dr{to{transform:translateX(50px)}}
 .ws{display:grid;gap:8px}.ws button{text-align:left}
 @media (prefers-reduced-motion:reduce){.bu,.bd,.wf,.cd,.fi,.bn{animation:none!important}}
-#tint{display:none;position:fixed;inset:0;z-index:1;pointer-events:none;background:repeating-linear-gradient(105deg,rgba(255,255,255,.07) 0 28px,transparent 28px 90px),linear-gradient(rgba(60,170,230,.16),rgba(8,60,130,.34));animation:rays 12s linear infinite}body[data-w="o"] #tint{display:block}@keyframes rays{to{background-position:180px 0,0 0}}
+#tint{display:none;position:fixed;inset:0;z-index:1;pointer-events:none;background:repeating-linear-gradient(105deg,rgba(255,255,255,.07) 0 28px,transparent 28px 90px),linear-gradient(rgba(60,170,230,.16),rgba(8,60,130,.34))}body[data-w="o"] #tint{display:block}@keyframes rays{to{background-position:180px 0,0 0}}
 body[data-w="o"] #land .sky:after{content:"";position:absolute;left:0;right:0;top:0;height:30px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='28'%3E%3Cpath d='M0 14Q15 2 30 14T60 14T90 14T120 14' fill='none' stroke='white' stroke-opacity='.6' stroke-width='3'/%3E%3C/svg%3E") repeat-x;animation:wv 7s linear infinite}@keyframes wv{to{background-position:120px 0}}
 .hm-s,.hm-a{display:none}body[data-w="o"] .hm-d,body[data-w="k"] .hm-d{display:none}body[data-w="o"] .hm-s,body[data-w="k"] .hm-a{display:block}.hm-a{animation:bob 3.5s ease-in-out infinite}
 @media (prefers-reduced-motion:reduce){#tint,#land .sky:after,.hm-a{animation:none!important}}
 #wxc{position:fixed;inset:0;width:100%;height:100%;z-index:2;pointer-events:none}
 #wxo{position:fixed;inset:0;z-index:1;pointer-events:none;transition:background .8s}
-#wxo.sun{background:radial-gradient(60% 45% at 85% 0%,rgba(255,236,170,.4),transparent),repeating-linear-gradient(115deg,rgba(255,244,200,.1) 0 40px,transparent 40px 120px);animation:rays 20s linear infinite}
+#wxo.sun{background:radial-gradient(60% 45% at 85% 0%,rgba(255,236,170,.4),transparent),repeating-linear-gradient(115deg,rgba(255,244,200,.1) 0 40px,transparent 40px 120px)}
 .top,footer{position:relative;z-index:3}
 .wxw{display:flex;flex-direction:column;align-items:flex-start;padding:6px 12px;line-height:1.2}.wxw small{color:var(--mut);font-size:11px}
 .wd{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:5px;background:var(--mut)}.wd.ok{background:var(--ok)}.wd.off{background:#e5484d}.wd.sim{background:#e8a93a}
 .wl{display:flex;gap:6px;overflow-x:auto;margin:0 0 8px}.wl div{flex:none;min-width:54px;text-align:center;padding:6px;border-radius:12px;background:var(--line)}.wl small{display:block;color:var(--mut);font-size:11px}.wl span{display:block;font-size:18px}
+body.paused *,body.paused *:before,body.paused *:after{animation-play-state:paused!important}
+.fl,.cr,.bob,.cd,.hm-a,.gfab .gh,.al,.fi,.bn{will-change:transform}
 .door{fill:#2a3040}
 .gh{width:84px;height:84px;flex:none;background:var(--gear) center/contain no-repeat}
-.npc{position:fixed;left:16px;right:16px;max-width:540px;bottom:calc(150px + env(safe-area-inset-bottom,0px));display:flex;gap:12px;align-items:flex-end;padding:14px 16px;background:var(--card);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:22px;box-shadow:0 24px 60px var(--sh);z-index:7;opacity:0;transform:translateY(30px);pointer-events:none;transition:.35s cubic-bezier(.2,.9,.3,1)}
+.npc{position:fixed;left:16px;right:16px;max-width:540px;bottom:calc(150px + env(safe-area-inset-bottom,0px));display:flex;gap:12px;align-items:flex-end;padding:14px 16px;background:linear-gradient(var(--card),var(--card)),var(--bg);border:1px solid var(--line);border-radius:22px;box-shadow:0 10px 24px var(--sh);z-index:7;opacity:0;transform:translateY(30px);pointer-events:none;transition:.35s cubic-bezier(.2,.9,.3,1)}
 .npc.on{opacity:1;transform:none;pointer-events:auto}
 .nb{flex:1;min-width:0}.nb>b{font-weight:800}.nb p{margin:4px 0 10px;min-height:42px}
 .gfab{position:fixed;left:10px;bottom:calc(52px + env(safe-area-inset-bottom,0px));width:120px;height:96px;padding:0;border:0;background:none;z-index:6}.gfab svg{position:absolute;inset:0;width:100%;height:100%}.gfab .gh{position:absolute;left:38px;bottom:6px;width:44px;height:34px;animation:bob 3s ease-in-out infinite}.gfab:hover .gh{filter:brightness(1.1)}
@@ -111,7 +113,7 @@ body[data-w="s"]{--bg:#070b1f;--ink:#e9eeff;--mut:#8e9bd0;--card:rgba(14,20,50,.
 body[data-w="s"] #gst>:nth-child(n+2):nth-child(-n+5){display:none}
 .al{display:none}body[data-w="s"] .al{display:block;transform-box:fill-box;transform-origin:center;animation:fl 2.2s ease-in-out infinite alternate}
 .fl{transform-box:fill-box;transform-origin:center;animation:fl 6s ease-in-out infinite alternate}@keyframes fl{from{transform:translate(0,4px) rotate(-1.4deg)}to{transform:translate(0,-9px) rotate(1.4deg)}}
-.st{animation:tw 3.5s ease-in-out infinite}@keyframes tw{50%{opacity:.25}}.bl{fill:#ff5a6e;animation:tw 1.6s infinite}
+@keyframes tw{50%{opacity:.25}}.bl{fill:#ff5a6e;animation:tw 1.6s infinite}
 @media (prefers-reduced-motion:reduce){.fl,.st,.bl,.al{animation:none!important}}
 @media (prefers-reduced-motion:reduce){.sf{animation:none}}
 @media (prefers-reduced-motion:reduce){.bob,#toast.go{animation:none}.b,button{transition:none}}
@@ -185,14 +187,14 @@ function land(){const w=S.world,L=$("#land");L.style.display=w==="space"?"none":
   const Q={forest:["linear-gradient(#1b2d4d,#c9794a 72%,#f2c47c)","#2f6b36","#1f4f2a","#24562f"],city:["linear-gradient(#86c5f0,#e3f3fc)","#6bb25a","#4a9a48","#5aa14f"],ginger:["linear-gradient(#141c44,#46609e)","#f5f9ff","#dfe9f7","#cfdcf0"],sea:["linear-gradient(#bff3ff,#38a8d8 40%,#1b63a8)","#3f86be","#245f9c","#134e82"],sky:["linear-gradient(#3f8fe0,#8cc4f5)","#8cc4f5","#e8f4ff","#ffffff"]}[w];if(!Q)return;
   L.querySelector(".sky").style.background=Q[0];L.style.setProperty("--hc",Q[3]);
   L.querySelector(".gr").style.background=(w==="ginger"?"":w==="sea"?tileS(131,103,14,1)+","+tileS(173,139,16,2)+",":w==="sky"?tileK(260,170,6,1)+",":tile(137,109,16,1)+","+tile(181,149,18,2)+",")+`linear-gradient(${Q[1]},${Q[2]})`}
-function world(){land();wxOv();$("#wb").textContent=WE[S.world]+" Сеттинг: "+WN[S.world];const g=S.world==="ginger";document.body.dataset.w=g?"g":S.world==="space"?"s":S.world==="forest"?"f":S.world==="sea"?"o":S.world==="sky"?"k":"c";document.querySelectorAll(".wsg button").forEach(b=>b.classList.toggle("on",b.dataset.w===S.world));const sn=$("#snow");if(sn.dataset.k!==S.world){sn.dataset.k=S.world;sn.innerHTML=S.world==="sea"?Array.from({length:22},(_,i)=>`<circle cx="${i*97%800}" cy="0" r="${2+i%4*1.6}" class="bu" style="animation-delay:-${i%9}s;animation-duration:${8+i%6}s"/>`).join(""):S.world==="forest"?Array.from({length:26},(_,i)=>`<circle cx="${i*113%800}" cy="${60+i*47%380}" r="${1.6+i%3*.7}" class="ff" style="animation-delay:-${i%8}s;animation-duration:${6+i%5}s"/>`).join(""):g?Array.from({length:46},(_,i)=>`<circle cx="${i*89%800}" cy="-8" r="${1.4+i%3}" class="sf" style="animation-duration:${8+i%5}s;animation-delay:-${i%9}s"/>`).join(""):""}}
+function world(){land();wxOv();$("#wb").textContent=WE[S.world]+" Сеттинг: "+WN[S.world];const g=S.world==="ginger";document.body.dataset.w=g?"g":S.world==="space"?"s":S.world==="forest"?"f":S.world==="sea"?"o":S.world==="sky"?"k":"c";document.querySelectorAll(".wsg button").forEach(b=>b.classList.toggle("on",b.dataset.w===S.world));const sn=$("#snow");if(sn.dataset.k!==S.world){sn.dataset.k=S.world;sn.innerHTML=S.world==="sea"?Array.from({length:9},(_,i)=>`<circle cx="${i*97%800}" cy="0" r="${2+i%4*1.6}" class="bu" style="animation-delay:-${i%9}s;animation-duration:${8+i%6}s"/>`).join(""):S.world==="forest"?Array.from({length:10},(_,i)=>`<circle cx="${i*113%800}" cy="${60+i*47%380}" r="${1.6+i%3*.7}" class="ff" style="animation-delay:-${i%8}s;animation-duration:${6+i%5}s"/>`).join(""):g?Array.from({length:18},(_,i)=>`<circle cx="${i*89%800}" cy="-8" r="${1.4+i%3}" class="sf" style="animation-duration:${8+i%5}s;animation-delay:-${i%9}s"/>`).join(""):""}}
 const SC=["#cfd8e6","#e4d9c6","#c7e0e0","#d8cfe6","#e6d2d2","#d3e3c8"];
 function gs(o){
   const i=o.id,h=o.h+10,[cx,cy]=P(o.gx+1,o.gy+1,o.h*.5+34),m=SC[i%6],rw=36+i%3*4,n=Math.max(2,Math.floor(h/20)),
   win=[...Array(n)].map((_,j)=>`<circle class="w ${o.st}" cx="0" cy="${-h/2+14+j*18}" r="3.4" stroke="#fff" stroke-width="1.2"/>`).join(""),
   pn=[-1,1].map(k=>{const px=k>0?rw-4:-rw-18;return `<line x1="${k*17}" y1="${-h/2+12}" x2="${k*(rw-4)}" y2="${-h/2+12}" stroke="#9aa8c4" stroke-width="2"/><rect x="${px}" y="${-h/2+3}" width="22" height="18" rx="2" fill="#2650b0" stroke="#8fb4ff" stroke-width=".8"/><rect x="${px}" y="${-h/2+3}" width="22" height="18" rx="2" fill="url(#sp)"/>`}).join("");
   return `<g class="b${S.sel===i?" sel":""}" data-id="${i}" data-d="${o.gx+o.gy+2}"><g transform="translate(${cx},${cy})"><g class="fl" style="animation-delay:-${i*1.7}s"><ellipse rx="${rw}" ry="13" fill="none" stroke="${shade(m,-.45)}" stroke-width="6"/>${pn}<rect class="t" x="-17" y="${-h/2}" width="34" height="${h}" rx="15" fill="${m}"/><rect x="-14" y="${-h/2+6}" width="7" height="${h-12}" rx="3.5" fill="#fff" opacity=".4"/><rect x="6" y="${-h/2+4}" width="11" height="${h-8}" rx="5" fill="#000" opacity=".14"/>${win}<path d="M${-rw} 0A${rw} 13 0 0 0 ${rw} 0" fill="none" stroke="${m}" stroke-width="6" stroke-linecap="round"/><line x1="0" y1="${-h/2}" x2="0" y2="${-h/2-14}" stroke="#dfe7f5"/><circle class="bl" cy="${-h/2-16}" r="2.4"/></g></g>${pinS(o)}</g>`}
-function spaceBg(){let s="";for(let i=0;i<90;i++)s+=`<circle cx="${i*131%800}" cy="${i*67%490}" r="${.6+i%3*.5}" fill="#fff" class="st" style="animation-delay:-${i%7}s"/>`;s+=`<circle cx="120" cy="95" r="46" fill="url(#pl)"/><ellipse cx="120" cy="95" rx="78" ry="13" fill="none" stroke="#ffd9a8" stroke-opacity=".5" stroke-width="3" transform="rotate(-16 120 95)"/>`;for(const y of[4.1,10.3])s+=`<polyline fill="none" stroke="#7a8cff" stroke-opacity=".3" stroke-dasharray="6 9" points="${pt([P(-1.2,y),P(14.6,y)])}"/>`;return s}
+function spaceBg(){let s="";for(let i=0;i<40;i++)s+=`<circle cx="${i*131%800}" cy="${i*67%490}" r="${.6+i%3*.5}" fill="#fff" class="st" style="animation-delay:-${i%7}s"/>`;s+=`<circle cx="120" cy="95" r="46" fill="url(#pl)"/><ellipse cx="120" cy="95" rx="78" ry="13" fill="none" stroke="#ffd9a8" stroke-opacity=".5" stroke-width="3" transform="rotate(-16 120 95)"/>`;for(const y of[4.1,10.3])s+=`<polyline fill="none" stroke="#7a8cff" stroke-opacity=".3" stroke-dasharray="6 9" points="${pt([P(-1.2,y),P(14.6,y)])}"/>`;return s}
 const FC={free:["#2f7d46","#3f9b55","#5cbc6c"],busy:["#2a6b3e","#37894e","#4aa862"],clean:["#6a7447","#7a8450","#929c5d"]};
 function gf(o){
   const i=o.id,st=o.st,k=.72,th=o.h*.7,ch=th+12,[bx,by]=P(o.gx+1,o.gy+1,0),c=FC[st],
@@ -203,7 +205,7 @@ function gf(o){
   ff=st==="free"?[[-30,-6],[28,-14],[10,-34]].map(([x,y],j)=>`<circle class="ff" cx="${x*k}" cy="${y*k}" r="1.8" style="animation-delay:-${j*2+i}s"/>`).join(""):"",
   sm=st==="busy"?`<rect x="11" y="${-th*.6-10}" width="6" height="12" fill="#4a3626"/>`+[0,1,2].map(j=>`<circle class="sm" cx="14" cy="${-th*.6-12}" r="4" style="animation-delay:-${j*1.1}s"/>`).join(""):"",
   lit=st==="busy"?"#ffcf6e":"#2a1c12",
-  mus=[[-30,2,"#e8506a"],[28,4,"#7be0c8"]].map(([x,y,f])=>`<g transform="translate(${x},${y})"><rect x="-1.2" y="-5" width="2.4" height="5" fill="#e9e2cf"/><path d="M-6 -4A6 5 0 0 1 6 -4Z" style="fill:${f};filter:drop-shadow(0 0 3px ${f})"/></g>`).join(""),
+  mus=[[-30,2,"#e8506a"],[28,4,"#7be0c8"]].map(([x,y,f])=>`<g transform="translate(${x},${y})"><rect x="-1.2" y="-5" width="2.4" height="5" fill="#e9e2cf"/><path d="M-6 -4A6 5 0 0 1 6 -4Z" fill="${f}"/></g>`).join(""),
   kp=false?`<foreignObject x="-78" y="-34" width="46" height="36"><div class="gh" style="width:44px;height:34px;animation:bob 3s ease-in-out infinite"></div></foreignObject>`:"";
   return `<g class="b${S.sel===i?" sel":""}" data-id="${i}" data-d="${o.gx+o.gy+2}"><g transform="translate(${bx},${by})"><ellipse cy="3" rx="36" ry="10" fill="#000" opacity=".32"/>${mus}${kp}<path class="t" d="M-21 4C-16 -4 -15 ${-th*.5} -13 ${-th}L13 ${-th}C15 ${-th*.5} 16 -4 21 4Z" fill="#5b4330"/><path d="M-8 -4C-11 -16 -7 -26 -9 ${-th+6}M6 -6C9 -18 5 -28 8 ${-th+8}" fill="none" stroke="#3d2b1c" stroke-width="1.6" opacity=".6"/><path d="M-6 0V-12A6 6 0 0 1 6 -12V0Z" fill="${lit}"/><circle cx="0" cy="${-th*.55}" r="3.4" fill="${lit}" stroke="#3d2b1c"/>${sm}<g transform="translate(0,${-ch})">${glow}<g class="${st==="clean"?"":"cr"}">${cr}${ln}${dr}</g>${ff}</g></g>${pinS(o)}</g>`}
 function lbl(o){return o.st==="clean"?(o.cl==="need"?"Назначить":o.cl==="work"?"Убирают":"Проверить"):o.st==="busy"&&!o.code?"Ждёт код":ST[o.st][0]}
@@ -228,7 +230,7 @@ function bld(o){if(S.world==="ginger")return gb(o);if(S.world==="space")return g
 <g transform="translate(${px},${py})"><g class="bob"><rect x="-66" y="-19" width="132" height="36" rx="12" style="fill:${col}"/><text y="-4" text-anchor="middle" fill="${o.st==="clean"?"#1b1400":"#fff"}" font-size="11" font-weight="800">${o.name}</text><text y="10" text-anchor="middle" fill="${o.st==="clean"?"#1b1400":"#fff"}" font-size="10">${lab}${dl(o)?" · "+dl(o):""}</text></g></g></g>`}
 
 let G=null,last=performance.now();
-function tick(now){
+function tick(now){if(pz()){setTimeout(()=>requestAnimationFrame(tick),300);last=performance.now();return}
   const dt=Math.min(.05,(now-last)/1000),el=$("#gst");last=now;let fin=null;
   if(G){
     if(G.wp.length){const [tx,ty]=G.wp[0],dx=tx-G.x,dy=ty-G.y,d=Math.hypot(dx,dy),st=2.2*dt;
@@ -289,7 +291,7 @@ function talk(){N.s=6;document.body.classList.add("nn");$("#npc").classList.add(
 function nxt(){N.i++;nr()}
 function att(o){const [x,y]=P(o.gx+1,o.gy+1,o.h+(S.world==="space"?66:S.world==="forest"?54:S.world==="sea"?20:S.world==="sky"?50:S.world==="city"?32:40));return `<g data-id="${o.id}" style="cursor:pointer" transform="translate(${x+66},${y-19})"><g class="at"><circle r="11" fill="#e5484d" stroke="#fff" stroke-width="1.5"/><text y="4.5" text-anchor="middle" fill="#fff" font-size="13" font-weight="800">!</text></g></g>`}
 function npc(s){N.s=s;if(s===0)N.d={ch:[]};document.body.classList.add("nn");$("#npc").classList.add("on");S.sheet=null;refresh();nr()}
-function nc(){document.body.classList.remove("nn");$("#npc").classList.remove("on");clearInterval(ty)}
+function nc(){document.body.classList.remove("nn");syncPz();$("#npc").classList.remove("on");clearInterval(ty)}
 function tg(x){const i=$("#ni");if(i)N.d.ical=i.value;const a=N.d.ch,k=a.indexOf(x);k<0?a.push(x):a.splice(k,1);nr(1)}
 function nr(k){
   const s=N.s,d=N.d,en=`onkeydown="if(event.key==='Enter')nx()"`,T0=["Привет! Я Шестеренкоголовый, механик твоего мира. Настрою бизнес в два клика. Начнём с чистого листа?","Как называется твой первый объект?","Сколько стоит ночь в этом объекте, ₽?","Откуда приходят брони? Отметь каналы, iCal-ссылку можно вставить сразу.","Готово! «"+(d.name||"")+"» уже на карте. Остальное могу подтянуть из PMS и Авито (в демо на демо-данных)."];
@@ -324,11 +326,11 @@ function wsHtml(){return `<h3>Сеттинг</h3><p class="sub">Выберите
 function uri(w,h,s){return `url("data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}">${s}</svg>`)}") 0 0/${w}px ${h}px`}
 function tileS(w,h,n,sd){let s="";const c=["#ff7f9e","#ff9a5c","#c58bff","#ffd0a0"];for(let i=0;i<n;i++){const x=(i*53+sd*29)%w,y=(i*37+sd*17)%h,f=c[(i+sd)%4];s+=i%3===0?`<path d="M${x} ${y}v-9M${x} ${y-4}l-4-4M${x} ${y-6}l4-5" stroke="${f}" stroke-width="2.4" stroke-linecap="round" fill="none"/>`:i%3===1?`<path d="M${x-4} ${y}a4 4 0 0 1 8 0z" fill="${f}"/>`:`<ellipse cx="${x}" cy="${y}" rx="3" ry="1.8" fill="#6fa3d0"/>`}return uri(w,h,s)}
 function tileK(w,h,n,sd){let s="";for(let i=0;i<n;i++){const x=(i*97+sd*41)%w+26,y=(i*53+sd*23)%h+12;s+=`<g fill="#fff" opacity=".75"><ellipse cx="${x}" cy="${y}" rx="26" ry="9"/><ellipse cx="${x+14}" cy="${y-6}" rx="16" ry="9"/><ellipse cx="${x-12}" cy="${y-4}" rx="14" ry="7"/></g>`}return uri(w,h,s)}
-function skyBg(){let s="";for(let i=0;i<7;i++){const x=(i*131)%760+20,y=40+(i*67)%400;s+=`<g class="cd" fill="#fff" opacity=".8" style="animation-delay:-${i*5}s"><ellipse cx="${x}" cy="${y}" rx="44" ry="13"/><ellipse cx="${x+22}" cy="${y-9}" rx="26" ry="12"/><ellipse cx="${x-20}" cy="${y-6}" rx="22" ry="10"/></g>`}for(const y of[4.1,10.3])s+=`<polyline fill="none" stroke="#fff" stroke-opacity=".6" stroke-dasharray="6 9" points="${pt([P(-1.2,y),P(14.6,y)])}"/>`;return s}
+function skyBg(){let s="";for(let i=0;i<4;i++){const x=(i*131)%760+20,y=40+(i*67)%400;s+=`<g class="cd" fill="#fff" opacity=".8" style="animation-delay:-${i*5}s"><ellipse cx="${x}" cy="${y}" rx="44" ry="13"/><ellipse cx="${x+22}" cy="${y-9}" rx="26" ry="12"/><ellipse cx="${x-20}" cy="${y-6}" rx="22" ry="10"/></g>`}for(const y of[4.1,10.3])s+=`<polyline fill="none" stroke="#fff" stroke-opacity=".6" stroke-dasharray="6 9" points="${pt([P(-1.2,y),P(14.6,y)])}"/>`;return s}
 function gu(o){const i=o.id,st=o.st,th=o.h*.85,R=36,[bx,by]=P(o.gx+1,o.gy+1,0),
   co=[[-46,2,"#ff7f9e"],[44,3,"#ff9a5c"],[-34,6,"#c58bff"]].map(([x,y,c])=>`<path d="M${x} ${y}v-14M${x} ${y-6}l-5-6M${x} ${y-9}l5-7" stroke="${c}" stroke-width="3" stroke-linecap="round" fill="none"/>`).join(""),
   tw=`<rect x="-12" y="${-th*.55}" width="24" height="${th*.55}" rx="6" fill="#efe6fa"/><path d="M-14 ${-th*.55}a14 11 0 0 1 28 0z" fill="#ffb8c9"/>`+[0,1].map(j=>`<circle class="w ${st}" cx="0" cy="${-th*.14-j*th*.2}" r="3.4" stroke="#fff" stroke-width="1"/>`).join(""),
-  ex=st==="free"?`<circle cy="${-th*.8}" r="4" fill="#fff" style="filter:drop-shadow(0 0 5px #9ff)"/>`:st==="busy"?[0,1,2].map(j=>`<circle class="bd" cx="${-10+j*10}" cy="${-th-2}" r="${2+j}" style="animation-delay:-${j}s"/>`).join(""):`<path d="M-28 -6Q-34 ${-th*.4} -26 ${-th*.7}M28 -6Q34 ${-th*.4} 26 ${-th*.65}" stroke="#2f7a4a" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M${-R} 0A${R} ${th} 0 0 1 ${R} 0Z" fill="#4a7a3a" opacity=".35"/>`;
+  ex=st==="free"?`<circle cy="${-th*.8}" r="4" fill="#fff" stroke="#9ff" stroke-opacity=".5" stroke-width="5"/>`:st==="busy"?[0,1,2].map(j=>`<circle class="bd" cx="${-10+j*10}" cy="${-th-2}" r="${2+j}" style="animation-delay:-${j}s"/>`).join(""):`<path d="M-28 -6Q-34 ${-th*.4} -26 ${-th*.7}M28 -6Q34 ${-th*.4} 26 ${-th*.65}" stroke="#2f7a4a" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M${-R} 0A${R} ${th} 0 0 1 ${R} 0Z" fill="#4a7a3a" opacity=".35"/>`;
   return `<g class="b${S.sel===i?" sel":""}" data-id="${i}" data-d="${o.gx+o.gy+2}"><g transform="translate(${bx},${by})"><ellipse cy="3" rx="46" ry="11" fill="#2c5f8f"/><ellipse cy="1" rx="42" ry="9" fill="#4a86b8"/>${co}<g>${tw}${ex}</g><path class="t" d="M${-R} 0A${R} ${th} 0 0 1 ${R} 0Z" fill="rgba(180,235,255,.26)" stroke="rgba(255,255,255,.75)" stroke-width="1.6"/><path d="M${-R*.7} ${-th*.4}A${R*.8} ${th*.8} 0 0 1 ${-R*.25} ${-th*.88}" stroke="#fff" stroke-opacity=".6" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M30 8a8 7 0 0 1 16 0z" fill="#ffb8c9"/></g>${pinS(o)}</g>`}
 function gk(o){const i=o.id,st=o.st,th=o.h*.8,[bx,by]=P(o.gx+1,o.gy+1,0),r=["#e05a7a","#5a8de0","#9a6be0","#e0a03a"][i%4],
   w=(x,y)=>`<rect class="w ${st}" x="${x-2.2}" y="${y}" width="4.4" height="7" rx="2.2" stroke="#fff" stroke-width=".8"/>`,
@@ -377,7 +379,7 @@ function render(){
   document.querySelectorAll(".seg button").forEach(b=>b.classList.toggle("on",b.dataset.v===S.view));
   document.querySelectorAll(".view").forEach(v=>v.classList.toggle("on",v.id==="v-"+S.view));
   $("#city").appendChild($("#gst"));$("#bg").innerHTML=ground();$("#bl").innerHTML=[...S.objs].sort((a,b)=>a.gx+a.gy-b.gx-b.gy).map(bld).join("");
-  $("#at").innerHTML=S.objs.filter(o=>o.st==="busy"&&!o.code).map(att).join("");desk();focus();foot();world()}
+  $("#at").innerHTML=S.objs.filter(o=>o.st==="busy"&&!o.code).map(att).join("");desk();focus();foot();world();syncPz()}
 
 document.querySelectorAll(".wsg button").forEach(b=>b.onclick=()=>{S.world=b.dataset.w;refresh()});
 document.querySelectorAll(".seg button").forEach(b=>b.onclick=()=>{S.view=b.dataset.v;refresh()});
@@ -421,14 +423,15 @@ function wxHtml(){const e=wxEff(),c=W.cur;let h=`<h3>Погода: ${WX.loc.name
 const wc=$("#wxc"),cx=wc.getContext("2d");let PS=[],pm=null,fl=0;
 function wxSize(){wc.width=innerWidth;wc.height=innerHeight}addEventListener("resize",wxSize);wxSize();
 function fx(){const e=wxEff();if(!e)return{};const k=e.kind,w=S.world,s=w==="space",r=k==="rain"||k==="storm";return{e,n:k==="storm"?1.6:1,m:r?(w==="sea"?"bub":s?"met":"rain"):k==="snow"?(w==="sea"?"plk":s?"dst":"snow"):null}}
-function wxLoop(t){const f=fx(),W2=wc.width,H=wc.height;cx.clearRect(0,0,W2,H);
-  if(f.m&&!RM){if(pm!==f.m){pm=f.m;PS=[]}const N2=Math.round({rain:130,met:90,bub:34,snow:80,plk:60,dst:60}[f.m]*f.n);while(PS.length<N2)PS.push({x:Math.random()*W2,y:Math.random()*H,v:Math.random()});PS.length=N2;cx.beginPath();
+function wxLoop(t){if(pz()){setTimeout(()=>requestAnimationFrame(wxLoop),300);return}const f=fx(),W2=wc.width,H=wc.height;cx.clearRect(0,0,W2,H);
+  if(f.m&&!RM){if(pm!==f.m){pm=f.m;PS=[]}const N2=Math.round({rain:55,met:36,bub:14,snow:34,plk:24,dst:24}[f.m]*f.n);while(PS.length<N2)PS.push({x:Math.random()*W2,y:Math.random()*H,v:Math.random()});PS.length=N2;cx.beginPath();
     if(f.m==="rain"||f.m==="met"){const mt=f.m==="met";cx.strokeStyle=mt?"rgba(200,180,255,.75)":"rgba(185,210,255,.55)";cx.lineWidth=1.2;for(const p of PS){p.y+=(10+p.v*8)*(mt?1.5:1);p.x+=mt?6:-1.4;if(p.y>H||p.x<-20||p.x>W2+20){p.y=-20;p.x=Math.random()*W2}cx.moveTo(p.x,p.y);cx.lineTo(p.x+(mt?10:-2.5),p.y+(mt?7:13))}cx.stroke()}
     else{const bub=f.m==="bub";for(const p of PS){p.y+=bub?-(.9+p.v*1.6)*f.n:f.m==="snow"?.7+p.v*1.3:.35+p.v*.6;p.x+=Math.sin(t/800+p.v*9)*(bub?.9:.5)+(f.m==="plk"?.4:0);if(p.y>H+8||p.y<-12||p.x>W2+10){p.y=bub?H+8:-8;p.x=Math.random()*W2}const r=bub?2+p.v*4:1.2+p.v*2;cx.moveTo(p.x+r,p.y);cx.arc(p.x,p.y,r,0,6.3)}
       if(bub){cx.strokeStyle="rgba(255,255,255,.65)";cx.lineWidth=1.2;cx.stroke()}else{cx.fillStyle=f.m==="dst"?"rgba(255,226,150,.85)":"rgba(255,255,255,.85)";cx.fill()}}
   }else pm=null;
   if(f.e&&f.e.kind==="storm"&&!RM){if(Math.random()<.004)fl=1;if(fl>.02){cx.fillStyle=`rgba(255,255,255,${fl*.3})`;cx.fillRect(0,0,W2,H);fl*=.88}}
   requestAnimationFrame(wxLoop)}
+const pz=()=>document.hidden||S.sheet||document.body.classList.contains("nn");function syncPz(){document.body.classList.toggle("paused",!!pz())}document.addEventListener("visibilitychange",syncPz);
 wxRender();requestAnimationFrame(wxLoop);WX.subscribeToWeather(WX.loc,r=>r.ok?wxSet(r.data):wxFail());
 render();requestAnimationFrame(tick);setTimeout(spawn,1800);
 </script>
